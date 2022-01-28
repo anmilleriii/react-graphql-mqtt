@@ -1,0 +1,10 @@
+{
+  "name": "react-graphql-mqtt",
+  "version": "0.0.0",
+  "repository": "https://github.com/anmilleriii/react-graphql-mqtt.git",
+  "author": "Al Miller <albert.miller@uconn.edu>",
+  "license": "Apache",
+  "dependencies": {
+    "mqtt": "^4.3.4"
+  }
+}
