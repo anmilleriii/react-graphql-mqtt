@@ -7,7 +7,7 @@ import paho.mqtt.client as mqtt
 
 # EMQX broker endpoint details
 broker = {
-    "host": "broker.hivemq.com",
+    "host": "broker.emqx.io",
     # "host": "localhost",
     "port": 1883,
     "keep_alive_duration": 60,

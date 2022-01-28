@@ -27,10 +27,12 @@ asdfasdf
 ```
 python3 -m venv env
 source env/bin/activate
-python3 -m pip install paho
+python3 -m pip install paho-mqtt
 ```
 
+# questions
 
+where is qos defined sub or pub or broker?
 ## Acceptance Criteria
 
 asdf

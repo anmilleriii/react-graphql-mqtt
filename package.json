@@ -5,6 +5,8 @@
   "author": "Al Miller <albert.miller@uconn.edu>",
   "license": "Apache",
   "dependencies": {
-    "mqtt": "^4.3.4"
+    "browserify": "^17.0.0",
+    "mqtt": "^4.3.4",
+    "watchify": "^4.0.0"
   }
 }
