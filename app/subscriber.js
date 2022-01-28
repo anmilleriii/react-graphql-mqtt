@@ -1,25 +1,25 @@
 /**
- * MQTT client (only subscriber for now)
+ * MQTT client (only subscriber for now).
  */
- import mqtt from 'mqtt'
+import mqtt from 'mqtt'
 
- /**
-  * @todo env
-  */
- const brokerEndpoint = "mqtt://localhost:1338";
+/**
+ * @todo env
+ */
+const brokerEndpoint = "mqtt://localhost:1338";
 
- /**
-  * 
-  */
- const subscriber = mqtt.connect(brokerEndpoint)
- 
- /**
-  * Publish on connection
-  */
-  subscriber.on("connect", () => {
-    subscriber.publish("MOVED", JSON.stringify({
-         /**
-          * Shape of GrahpQL data.
-          */
-     }))
- })
+/**
+ * Creat subscriber.
+ */
+const subscriber = mqtt.connect(brokerEndpoint)
+
+/**
+ * Subscribe on connection.
+ */
+subscriber.on("connect", () => {
+     /**
+      * asdf
+      * Fire and forget
+      */
+     subscriber.subscribe("TEST_TOPIC", { qos: 0 })
+})
