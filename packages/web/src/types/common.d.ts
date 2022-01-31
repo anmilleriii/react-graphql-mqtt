@@ -4,5 +4,6 @@
 
 
 interface Props {
-    children: JSX.ElementChildrenAttribute
+    // children?: JSX.ElementChildrenAttribute
+    children?: any
 }

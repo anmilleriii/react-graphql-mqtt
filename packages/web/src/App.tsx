@@ -1,20 +1,15 @@
-import { useState } from 'react'
-import Status from '@/components/Status'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Landing } from "./routes/Landing";
+import { About } from "./routes/About";
+import './App.css'
 
-interface AppProps {
-  
-}
-
-const App = ({}: AppProps): JSX.Element => {
+export default () => {
   return (
-    <div>
-      <Status>
-        B
-      </Status>
-      hello
-    </div>
-  )
-
-}
-
-export default App;
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Landing />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
+    </BrowserRouter>
+  );
+};
