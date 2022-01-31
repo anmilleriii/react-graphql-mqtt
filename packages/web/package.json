@@ -12,12 +12,14 @@
     "build-storybook": "build-storybook"
   },
   "dependencies": {
+    "classnames": "^2.3.1",
     "gridjs": "^5.0.2",
     "gridjs-react": "^5.0.2",
     "mqtt": "^4.3.4",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-router-dom": "6",
+    "styled-components": "^5.3.3",
     "tachyons": "^4.12.0"
   },
   "devDependencies": {
@@ -35,6 +37,9 @@
     "tachyons-cli": "^1.3.3",
     "typescript": "^4.4.4",
     "vite": "^2.7.2"
+  },
+  "resolutions": {
+    "styled-components": "^5"
   },
   "license": "Apache-2.0"
 }

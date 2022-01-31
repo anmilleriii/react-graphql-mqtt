@@ -10,6 +10,9 @@ export default () => {
     <div className="mv4 center w-third-l w-two-thirds-m w-two-thirds mid-gray vh-100 ">
       <BrowserRouter>
           <NavigationBar />
+          <h2>
+          MQTT Duplex Heartbeat over Broker PoC
+          </h2>
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/about" element={<About />} />

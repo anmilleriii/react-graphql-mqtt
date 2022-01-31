@@ -1,27 +1,32 @@
 import { NavLink } from "react-router-dom";
 
 let activeStyle = {
-  textDecoration: "underline",
+  color: "var(--active)",
 };
-
 
 export const NavigationBar = (): JSX.Element => {
   return (
     <>
-      <NavLink
-        to="/"
-        style={({ isActive }) => (isActive ? activeStyle : undefined)}
-      >
-        home
-      </NavLink> |  
-      <NavLink
-        to="/about"
-        style={({ isActive }) => (isActive ? activeStyle : undefined)}
-      >
-        about
-      </NavLink>
-      <h2 className="">asdf</h2>
-      <div className=""></div>
+      <div className="flex flex-row w-100 justify-start f6 outline-0 ">
+        <NavLink
+          className="link dim gray"
+          to="/"
+          style={({ isActive }) => (isActive ? activeStyle : undefined)}
+        >
+          home
+        </NavLink>{" "}
+        <span className="o-50">
+
+        &nbsp;|&nbsp;
+        </span>
+        <NavLink
+          className="link dim gray outline-0"
+          to="/about"
+          style={({ isActive }) => (isActive ? activeStyle : undefined)}
+        >
+          about
+        </NavLink>
+      </div>
     </>
   );
 };

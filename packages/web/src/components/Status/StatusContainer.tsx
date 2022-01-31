@@ -12,26 +12,26 @@ interface StatusProps extends Props {}
 export const StatusContainer = ({}: StatusProps): JSX.Element => {
   return (
     <>
-      <div className="flex-row flex w-100 justify-around items-center gray b">
-        <div className="flex-column flex items-center ">
+      <div className="flex-row flex w-100  items-center gray b">
+        <div className="flex-column flex items-center mh3">
+          <div className="circle"></div>
           <span className="center mv2 f6">UI</span>
-          <div className="circle"></div>
         </div>
-        <div className="self-end">
+        <div className="mh3">
           <div className="arrow reverse mv2"></div>
-          <div className="arrow "></div>
+          <div className="line mv2"></div>
         </div>
-        <div className="flex-column flex items-center ">
+        <div className="flex-column flex items-center mh3 ">
+          <div className="circle"></div>
           <span className="center mv2 f6">Broker</span>
+        </div>
+        <div className="self-center mh3">
+          <div className="line "></div>
+          <div className="line "></div>
+        </div>
+        <div className="flex-column flex items-center mh3">
           <div className="circle"></div>
-        </div>
-        <div className="self-end">
-          <div className="arrow reverse"></div>
-          <div className="arrow "></div>
-        </div>
-        <div className="flex-column flex items-center ">
           <span className="center mv2 f6">Device</span>
-          <div className="circle"></div>
         </div>
       </div>
     </>

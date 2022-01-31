@@ -2,7 +2,7 @@
  *
  */
 interface SectionContainerProps extends Props {
-  header: string;
+  header?: string;
 }
 
 export const SectionContainer = ({
@@ -11,8 +11,10 @@ export const SectionContainer = ({
 }: SectionContainerProps): JSX.Element => {
   return (
     <>
-      <h2 className="">{header}</h2>
-      <div className="">{children}</div>
+      <div className="mb3">
+        <h3 className="">{header}</h3>
+        <div className="">{children}</div>
+      </div>
     </>
   );
 };

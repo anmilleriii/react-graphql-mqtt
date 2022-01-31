@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { StatusContainer } from "@/components/Status/StatusContainer";
-import { SectionContainer } from "@/components/Section/SectionContainer";
+import { SectionContainer } from "../components/Section/SectionContainer";
+import { StatusContainer } from "../components/Status/StatusContainer";
+import { KeyContainer } from "../components/Key/KeyContainer";
 import { Grid } from "gridjs-react";
 import "gridjs/dist/theme/mermaid.css";
 
@@ -8,21 +9,14 @@ interface LandingProps {}
 
 const Landing = ({}: LandingProps): JSX.Element => {
   return (
-    <div className="flex flex-column ">
-      <SectionContainer header="MQTT Duplex Heartbeat over Broker PoC">
-        <p>
-          This demonstrates a proof of concept for UI connection heartbeats
-          between a device and UI across a broker. Both heartbeats to the broker
-          are duplex. The circles
-        </p>
-      </SectionContainer>
+    <div className="flex flex-column justify-between">
       <SectionContainer header="Connection Status">
-        <StatusContainer></StatusContainer>
+        <StatusContainer />
       </SectionContainer>
       <SectionContainer header="Key">
-        <div>asdf</div>
+        <KeyContainer />
       </SectionContainer>
-      <SectionContainer header="Messages">
+      {/* <SectionContainer header="Messages">
         <Grid
           data={[
             ["John", "john@example.com"],
@@ -35,8 +29,8 @@ const Landing = ({}: LandingProps): JSX.Element => {
             limit: 1,
           }}
         />
-      </SectionContainer>
-      <SectionContainer header="Info"></SectionContainer>
+      </SectionContainer> */}
+      {/* <SectionContainer header="Info"></SectionContainer> */}
     </div>
   );
 };
