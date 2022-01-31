@@ -1,3 +1,13 @@
+/* 
+Variables
+*/
+
 html {
-  font-family: Arial, Helvetica, sans-serif;  
+  --positive: rgba(0, 177, 88, 0.657);
+  --negative: rgba(119, 0, 0, 0.623);
+  --neutral: rgb(151, 151, 151);
+}
+
+html {
+  font-family: Arial, Helvetica, sans-serif;
 }

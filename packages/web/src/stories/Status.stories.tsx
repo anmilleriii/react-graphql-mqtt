@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { StatusContainer } from '../components/StatusContainer';
+import { StatusContainer } from '../components/Status/StatusContainer';
 
 export default {
   title: 'Example/Header',
