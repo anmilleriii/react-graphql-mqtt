@@ -25,9 +25,9 @@ export const StatusContainer = ({}: StatusProps): JSX.Element => {
           <div className="circle"></div>
           <span className="center mv2 f6">Broker</span>
         </div>
-        <div className="self-center mh3">
-          <div className="line "></div>
-          <div className="line "></div>
+        <div className=" mh3 mv3">
+          <div className="line mv7 "></div>
+          <div className="line mv2 "></div>
         </div>
         <div className="flex-column flex items-center mh3">
           <div className="circle"></div>
