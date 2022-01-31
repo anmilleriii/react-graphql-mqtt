@@ -2,14 +2,13 @@
  *
  */
 import "./StatusContainer.css";
-interface StatusProps extends Props {}
 
 /**
  * Status container.
  *
  * @see https://react-typescript-cheatsheet.netlify.app/docs/basic/getting-started/function_components/
  */
-export const StatusContainer = ({}: StatusProps): JSX.Element => {
+export const StatusContainer = (): JSX.Element => {
   return (
     <>
       <div className="flex-row flex w-100  items-center gray b">
@@ -25,7 +24,7 @@ export const StatusContainer = ({}: StatusProps): JSX.Element => {
           <div className="circle"></div>
           <span className="center mv2 f6">Broker</span>
         </div>
-        <div className=" mh3 mv3">
+        <div className="mh3 mv3">
           <div className="line mv7 "></div>
           <div className="line mv2 "></div>
         </div>

@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 /**
  * MQTT client (only subscriber for now).
  * 
