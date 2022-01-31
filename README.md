@@ -30,6 +30,10 @@ source env/bin/activate
 python3 -m pip install paho-mqtt
 ```
 
+```
+yarn link
+```
+
 # questions
 
 where is qos defined sub or pub or broker?
