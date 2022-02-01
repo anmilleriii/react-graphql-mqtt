@@ -10,9 +10,12 @@ export default defineConfig({
       '@' : path.resolve(__dirname, './src')
     },
   },
-  build: {
-
-    cssCodeSplit: false,
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `@import "./src/css/theme/variables.scss";` 
+      }
+    }
   },
   plugins: [react()]
 })

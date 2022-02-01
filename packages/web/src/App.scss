@@ -1,0 +1,14 @@
+html {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+a:focus {
+    outline: none;
+}
+
+*:focus {
+    outline: none;
+}
+
+// @todo remove
+@import "gridjs/dist/theme/mermaid.css";
