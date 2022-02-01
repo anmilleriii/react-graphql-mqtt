@@ -21,3 +21,11 @@ a:focus {
 *:focus {
   outline: none;
 }
+
+
+.test {
+  color: pink;
+  font-style: italic;
+}
+
+@import "@/components/Status/StatusContainer.module.css"
