@@ -14,7 +14,10 @@
     "coverage": "vitest run --coverage"
   },
   "dependencies": {
+    "@apollo/client": "^3.5.8",
+    "apollo-server": "^3.6.2",
     "classnames": "^2.3.1",
+    "graphql": "^16.3.0",
     "gridjs": "^5.0.2",
     "gridjs-react": "^5.0.2",
     "mqtt": "^4.3.4",
