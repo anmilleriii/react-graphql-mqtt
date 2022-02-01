@@ -1,9 +1,9 @@
-# On PR to main, install dependencies, test, and build React app and push /dist to s3://react-mqtt.
+# On PR to main, install dependencies, test, and build React app and push /dist to s3://mqtt.anmiller.com.
 
 name: Upload site to S3
 
 env:
-  S3_BUCKET_NAME: react-mqtt
+  S3_BUCKET_NAME: mqtt.anmiller.com
   WORKING_DIRECTORY: ./
   DIST_DIRECTORY: ./packages/web/dist/
 
