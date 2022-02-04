@@ -10,7 +10,7 @@
     width: 5vw;
     margin: 2.1vw auto;
     height: 0;
-    border-bottom: 0.4vw solid var(--neutral);
+    border-bottom: 0.4vw solid var(--positive);
 }
 
 .arrow::after {
@@ -19,7 +19,7 @@
     height: 0;
     border-top: 0.8vw solid transparent;
     border-bottom: 0.8vw solid transparent;
-    border-left: 1.3vw solid var(--neutral);
+    border-left: 1.3vw solid var(--positive);
     position: absolute;
     right: -0.4vw;
     top: -0.6vw;
@@ -53,4 +53,8 @@
     border-bottom: 0.3vw solid transparent;
     border-left: 0.4vw solid blue;
     float: right;
+}
+
+.negative {
+    background-color: var(--negative);
 }

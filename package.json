@@ -9,6 +9,7 @@
         "preview": "yarn --cwd packages/web preview",
         "test": "yarn --cwd packages/web test",
         "server": "yarn --cwd packages/server start",
+        "mock": "cd packages/mock && python3 publisher.py && cd -",
         "coverage": "yarn --cwd packages/web coverage"
     },
     "license": "Apache-2.0"

@@ -2,20 +2,35 @@
 # See https://www.eclipse.org/paho/index.php?page=clients/python/index.php
 # See https://www.eclipse.org/paho/index.php?page=clients/python/docs/index.php
 
+import time
+import json
 import threading
 import paho.mqtt.client as mqtt
 
+timestamp = int(time.time())
+
 # EMQX broker endpoint details
 broker = {
-    "host": "broker.emqx.io",
+    "host": "13.58.87.104",
     # "host": "localhost",
+    
     "port": 1883,
     "keep_alive_duration": 60,
 }
 
+"""""
+Define topic
+"""""
+
 # Topic name and data to publish to
-topic = "TEST_TOPIC"
-payload = '{ "name":"John", "age":30, "city":"New York"}'
+topic = "sample-organization/device-0/gps-position"
+data = [{
+    "gps_coordinate": [
+        12, 23
+    ],
+    "timestamp": timestamp
+}]
+payload = json.dumps(data)
 qos = 0
 
 
@@ -44,7 +59,8 @@ def on_connect(client, userdata, flags, rc):
 
 
 # Create MQTT client
-client = mqtt.Client()
+client_id = "device-0"
+client = mqtt.Client(client_id)
 client.on_connect = on_connect
 print("Attempting to connect to " + broker["host"])
 client.connect(broker["host"], broker["port"], broker["keep_alive_duration"])

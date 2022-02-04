@@ -1,5 +1,6 @@
 import "./App.scss";
 
+import { useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Landing } from "./routes/Landing";
 import { About } from "./routes/About";
@@ -17,6 +18,9 @@ import {
   InMemoryCache,
 } from "@apollo/client";
 
+import { createSubscription } from "./controllers/mqttClient";
+// import mqtt from "mqtt";
+
 /**
  * GraphQL server endpoint
  */
@@ -30,6 +34,10 @@ const client = new ApolloClient({
 });
 
 export default () => {
+  useEffect(() => {
+    createSubscription();
+  }, []);
+
   return (
     <ApolloProvider client={client}>
       <div className="mv4 center w-third-l w-two-thirds-m w-two-thirds mid-gray vh-100 ">
@@ -45,3 +53,26 @@ export default () => {
     </ApolloProvider>
   );
 };
+
+// import React, { useState, useEffect } from 'react';
+
+// function Example() {
+//   const [count, setCount] = useState(0);
+
+//   // Similar to componentDidMount and componentDidUpdate:
+//   useEffect(() => {
+//     // Update the document title using the browser API
+//     document.title = `You clicked ${count} times`;
+//   });
+
+//   return (
+//     <div>
+//       <p>You clicked {count} times</p>
+//       <button onClick={() => setCount(count + 1)}>
+//         Click me
+//       </button>
+//     </div>
+//   );
+// }
+
+// export default Exa

@@ -5,6 +5,10 @@ import path from 'path'
 // https://vitejs.dev/config/
 export default defineConfig({
   // assetsInclude: ['**/*.css'],
+  // define: {
+  //   global: {},
+  //   process: {},
+  // },
   resolve: {
     alias:{
       '@' : path.resolve(__dirname, './src')

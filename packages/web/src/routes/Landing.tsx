@@ -10,10 +10,10 @@ interface LandingProps {}
 const Landing = ({}: LandingProps): JSX.Element => {
   return (
     <div className="flex flex-column justify-between">
-      <SectionContainer header="Connection Status">
+      {/* <SectionContainer header="Connection Status">
         <StatusContainer />
-      </SectionContainer>
-      <SectionContainer header="Message Log">
+      </SectionContainer> */}
+      {/* <SectionContainer header="Message Log">
         <Grid
           data={[
             ["John", "john@example.com"],
@@ -29,7 +29,7 @@ const Landing = ({}: LandingProps): JSX.Element => {
       </SectionContainer>
       <SectionContainer header="Key">
         <KeyContainer />
-      </SectionContainer>
+      </SectionContainer> */}
       {/* <SectionContainer header="Info"></SectionContainer> */}
     </div>
   );
