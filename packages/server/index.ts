@@ -1,28 +1,33 @@
+import { ApolloServer } from "apollo-server";
+import { readFileSync } from 'fs'
+import { Post, Resolvers} from './types/resolvers-types';
+
+
+const typeDefs = readFileSync('./schema.graphql').toString('utf-8')
+
 /**
- * @see https://github.com/apollographql/apollo-server
+ * Post from datasource
  */
-const { ApolloServer, gql } = require('apollo-server');
-
-// The GraphQL schema
-const typeDefs = gql`
-  type Query {
-    "A simple type for getting started!"
-    hello: String
+const myPost: Post = {
+  id: 1,
+  title: "First post",
+  author: {
+    firstName: "sdf",
+    lastName: "Miller",
+    id: 3
   }
-`;
 
-// A map of functions which return data for the schema.
-const resolvers = {
+}
+const resolvers: Resolvers = {
   Query: {
-    hello: () => 'world',
-  },
-};
+    posts: () => [myPost]
+  }
+}
 
-const server = new ApolloServer({
-  typeDefs,
-  resolvers,
-});
 
+const server = new ApolloServer({ typeDefs, resolvers });
+
+// The `listen` method launches a web server.
 server.listen().then(({ url }) => {
-  console.log(`🚀 Server ready at ${url}`);
+  console.log(`🚀  Server ready at ${url}`);
 });

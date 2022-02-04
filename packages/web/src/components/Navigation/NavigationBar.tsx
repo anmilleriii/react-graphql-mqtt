@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 
 
 let activeStyle = {
-  color: "var(--active)",
+  fontWeight: "bold",
 };
 
 export const NavigationBar = (): JSX.Element => {

@@ -16,9 +16,23 @@ import {
   ApolloClient,
   createHttpLink,
   InMemoryCache,
+  useQuery,
+  gql
 } from "@apollo/client";
 
+
+import * as Types from '../../server/types';
+
 import { createSubscription } from "./controllers/mqttClient";
+
+const GET_POSTS = gql`
+  query GetPosts() {
+    # posts() {
+
+    # }
+  } 
+`;
+
 // import mqtt from "mqtt";
 
 /**
@@ -32,6 +46,9 @@ const client = new ApolloClient({
   link: httpLink,
   cache: new InMemoryCache(),
 });
+
+const posts = useQuery<>(GET_POSTS)
+
 
 export default () => {
   useEffect(() => {
@@ -53,26 +70,3 @@ export default () => {
     </ApolloProvider>
   );
 };
-
-// import React, { useState, useEffect } from 'react';
-
-// function Example() {
-//   const [count, setCount] = useState(0);
-
-//   // Similar to componentDidMount and componentDidUpdate:
-//   useEffect(() => {
-//     // Update the document title using the browser API
-//     document.title = `You clicked ${count} times`;
-//   });
-
-//   return (
-//     <div>
-//       <p>You clicked {count} times</p>
-//       <button onClick={() => setCount(count + 1)}>
-//         Click me
-//       </button>
-//     </div>
-//   );
-// }
-
-// export default Exa

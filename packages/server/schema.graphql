@@ -1,0 +1,39 @@
+#schema.graphql
+
+# sadf
+
+# Data
+type Author {
+  id: Int!
+  firstName: String!
+  lastName: String!
+  posts(findTitle: String): [Post]
+}
+
+type Post {
+  id: Int!
+  title: String!
+  author: Author
+}
+
+# Queries
+type Query {
+  posts: [Post]
+}
+
+# Mutations
+input AuthorInput {
+  firstName: String!
+  apples: String
+  lastName: String!
+}
+
+input PostInput {
+  title: String!
+  author: AuthorInput
+}
+
+
+type Mutation {
+  createPost(input: PostInput): Post
+}

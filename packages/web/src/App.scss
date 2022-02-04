@@ -6,9 +6,11 @@ a:focus {
     outline: none;
 }
 
-*:focus {
-    outline: none;
+a:focus {
+    outline: none !important;
 }
+
+
 
 // @todo remove
 @import "gridjs/dist/theme/mermaid.css";
