@@ -17,21 +17,19 @@ import {
   createHttpLink,
   InMemoryCache,
   useQuery,
-  gql
+  gql,
 } from "@apollo/client";
 
+import * as Types from "../../server/types";
 
-import * as Types from '../../server/types';
+// import { createSubscription } from "./controllers/mqttClient";
 
-import { createSubscription } from "./controllers/mqttClient";
 
-const GET_POSTS = gql`
-  query GetPosts() {
-    # posts() {
 
-    # }
-  } 
-`;
+// const GET_POSTS = gql`
+// query Get {
+// }
+// `;
 
 // import mqtt from "mqtt";
 
@@ -47,12 +45,11 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
-const posts = useQuery<>(GET_POSTS)
-
+// const posts = useQuery<>(GET_POSTS);
 
 export default () => {
   useEffect(() => {
-    createSubscription();
+    // createSubscription();
   }, []);
 
   return (

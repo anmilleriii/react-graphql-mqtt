@@ -1,14 +1,14 @@
 // @ts-nocheck
 
 /**
- * MQTT client (only subscriber for now).
+ * This is the actual MQTT client (only subscriber for now).
  *
  * @see https://www.emqx.com/en/blog/connect-to-mqtt-broker-with-websocket
  */
-// import mqtt from "mqtt";
+import mqtt from "mqtt";
 
 // @ts-ignore
-const mqtt = window.mqtt;
+// const mqtt = window.mqtt;
 
 /**
  * Browser MUST connect to MQTT over WebSocket. Node.js CAN connect over WS OR MQTT directly.
@@ -36,7 +36,7 @@ const topics = {
 /**
  *
  */
-function createSubscription(): void {
+function createMqttClient(): MqttClient {
   //   const brokerEndpoint = "wss://13.58.87.104:8083/mqtt";
   const brokerEndpoint = "ws://13.58.87.104:8083/mqtt";
   //  const brokerEndpoint = "ws://broker.emqx.io:8083/mqtt";
@@ -80,6 +80,7 @@ function createSubscription(): void {
 
     Object.entries(topics.subscribe).forEach((topic) => {
       client.subscribe(topic[1], { qos: 0 }, (error) => {
+        console.log(topic[1])
         console.log(
           "Subscribing, if failed to subscribe there will be an error below."
         );
@@ -142,9 +143,10 @@ function createSubscription(): void {
   // const element = document.createElement("div");
   // element.innerHTML = `Data is: ${data}`;
   // document.body.appendChild(element);
+  return client;
 }
 
-export { createSubscription };
+export { createMqttClient };
 
 // /**
 //  * Create element on page to show status.

@@ -26,6 +26,22 @@ export type AuthorPostsArgs = {
   findTitle?: InputMaybe<Scalars['String']>;
 };
 
+export type AuthorInput = {
+  apples?: InputMaybe<Scalars['String']>;
+  firstName: Scalars['String'];
+  lastName: Scalars['String'];
+};
+
+export type Mutation = {
+  __typename?: 'Mutation';
+  createPost?: Maybe<Post>;
+};
+
+
+export type MutationCreatePostArgs = {
+  input?: InputMaybe<PostInput>;
+};
+
 export type Post = {
   __typename?: 'Post';
   author?: Maybe<Author>;
@@ -33,9 +49,24 @@ export type Post = {
   title: Scalars['String'];
 };
 
+export type PostInput = {
+  author?: InputMaybe<AuthorInput>;
+  title: Scalars['String'];
+};
+
 export type Query = {
   __typename?: 'Query';
   posts?: Maybe<Array<Maybe<Post>>>;
+};
+
+export type Result = {
+  __typename?: 'Result';
+  id?: Maybe<Scalars['String']>;
+};
+
+export type Subscription = {
+  __typename?: 'Subscription';
+  somethingChanged?: Maybe<Result>;
 };
 
 export type WithIndex<TObject> = TObject & Record<string, any>;
@@ -109,21 +140,31 @@ export type DirectiveResolverFn<TResult = {}, TParent = {}, TContext = {}, TArgs
 /** Mapping between all available schema types and the resolvers types */
 export type ResolversTypes = ResolversObject<{
   Author: ResolverTypeWrapper<Author>;
+  AuthorInput: AuthorInput;
   Boolean: ResolverTypeWrapper<Scalars['Boolean']>;
   Int: ResolverTypeWrapper<Scalars['Int']>;
+  Mutation: ResolverTypeWrapper<{}>;
   Post: ResolverTypeWrapper<Post>;
+  PostInput: PostInput;
   Query: ResolverTypeWrapper<{}>;
+  Result: ResolverTypeWrapper<Result>;
   String: ResolverTypeWrapper<Scalars['String']>;
+  Subscription: ResolverTypeWrapper<{}>;
 }>;
 
 /** Mapping between all available schema types and the resolvers parents */
 export type ResolversParentTypes = ResolversObject<{
   Author: Author;
+  AuthorInput: AuthorInput;
   Boolean: Scalars['Boolean'];
   Int: Scalars['Int'];
+  Mutation: {};
   Post: Post;
+  PostInput: PostInput;
   Query: {};
+  Result: Result;
   String: Scalars['String'];
+  Subscription: {};
 }>;
 
 export type AuthorResolvers<ContextType = any, ParentType extends ResolversParentTypes['Author'] = ResolversParentTypes['Author']> = ResolversObject<{
@@ -132,6 +173,10 @@ export type AuthorResolvers<ContextType = any, ParentType extends ResolversParen
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   posts?: Resolver<Maybe<Array<Maybe<ResolversTypes['Post']>>>, ParentType, ContextType, Partial<AuthorPostsArgs>>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+}>;
+
+export type MutationResolvers<ContextType = any, ParentType extends ResolversParentTypes['Mutation'] = ResolversParentTypes['Mutation']> = ResolversObject<{
+  createPost?: Resolver<Maybe<ResolversTypes['Post']>, ParentType, ContextType, Partial<MutationCreatePostArgs>>;
 }>;
 
 export type PostResolvers<ContextType = any, ParentType extends ResolversParentTypes['Post'] = ResolversParentTypes['Post']> = ResolversObject<{
@@ -145,9 +190,21 @@ export type QueryResolvers<ContextType = any, ParentType extends ResolversParent
   posts?: Resolver<Maybe<Array<Maybe<ResolversTypes['Post']>>>, ParentType, ContextType>;
 }>;
 
+export type ResultResolvers<ContextType = any, ParentType extends ResolversParentTypes['Result'] = ResolversParentTypes['Result']> = ResolversObject<{
+  id?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+}>;
+
+export type SubscriptionResolvers<ContextType = any, ParentType extends ResolversParentTypes['Subscription'] = ResolversParentTypes['Subscription']> = ResolversObject<{
+  somethingChanged?: SubscriptionResolver<Maybe<ResolversTypes['Result']>, "somethingChanged", ParentType, ContextType>;
+}>;
+
 export type Resolvers<ContextType = any> = ResolversObject<{
   Author?: AuthorResolvers<ContextType>;
+  Mutation?: MutationResolvers<ContextType>;
   Post?: PostResolvers<ContextType>;
   Query?: QueryResolvers<ContextType>;
+  Result?: ResultResolvers<ContextType>;
+  Subscription?: SubscriptionResolvers<ContextType>;
 }>;
 

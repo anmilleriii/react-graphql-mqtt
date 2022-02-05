@@ -14,8 +14,10 @@
     "coverage": "vitest run --coverage"
   },
   "dependencies": {
+    "@aerogear/graphql-mqtt-subscriptions": "https://github.com/aerogear/graphql-mqtt-subscriptions",
     "@apollo/client": "^3.5.8",
     "classnames": "^2.3.1",
+    "graphql-mqtt-subscriptions": "^1.2.0",
     "gridjs": "^5.0.2",
     "gridjs-react": "^5.0.2",
     "mqtt": "^4.3.4",

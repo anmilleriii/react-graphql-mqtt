@@ -5,9 +5,14 @@ import { KeyContainer } from "../components/Key/KeyContainer";
 import { Grid } from "gridjs-react";
 import "gridjs/dist/theme/mermaid.css";
 
+import { useGetPostsQuery } from "../../../server/types/generated/client-types";
+
 interface LandingProps {}
 
 const Landing = ({}: LandingProps): JSX.Element => {
+  const posts = useGetPostsQuery();
+  console.log(posts);
+
   return (
     <div className="flex flex-column justify-between">
       {/* <SectionContainer header="Connection Status">

@@ -1,1 +1,0 @@
-/// <reference path="resolvers-types.d.ts" />

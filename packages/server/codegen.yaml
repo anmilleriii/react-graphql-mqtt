@@ -1,9 +1,25 @@
+# https://www.the-guild.dev/blog/graphql-codegen-best-practices
+
+# watch: true
 schema: schema.graphql
 generates:
-  ./resolvers-types.ts:
+  ./types/generated/client-types.ts:
+    documents: 
+      - './*.graphql'
+    config:
+      withHooks: true
+    plugins:
+      - typescript
+      - typescript-operations
+      - typescript-react-apollo
+  ./types/generated/resolver-types.ts:
     config:
       useIndexSignature: true
     plugins:
       - typescript
       - typescript-resolvers
-      
+    # documents: 
+    # - query
+    # - mutation
+    # - subscription
+    # - fragment

@@ -1,0 +1,8 @@
+# GraphQL query with the query and name keywords
+query GetPosts {
+  posts {
+    title
+  }
+}
+
+

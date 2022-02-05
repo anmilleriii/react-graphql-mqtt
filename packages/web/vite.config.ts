@@ -2,16 +2,14 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import path from 'path'
 
-// https://vitejs.dev/config/
+/**
+ * @see  https://vitejs.dev/config/
+ */
 export default defineConfig({
-  // assetsInclude: ['**/*.css'],
-  // define: {
-  //   global: {},
-  //   process: {},
-  // },
   resolve: {
     alias:{
-      '@' : path.resolve(__dirname, './src')
+      '@' : path.resolve(__dirname, './src'),
+      '@' : path.resolve(__dirname, './src'),
     },
   },
   css: {
