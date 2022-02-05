@@ -2,7 +2,11 @@
   "compilerOptions": {
     "target": "ESNext",
     "useDefineForClassFields": true,
-    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "lib": [
+      "DOM",
+      "DOM.Iterable",
+      "ESNext"
+    ],
     "allowJs": false,
     "skipLibCheck": true,
     "esModuleInterop": false,
@@ -16,5 +20,18 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": ["./src", "../server/mqtt-client.ts"]
+  "include": [
+    "./src",
+    "../server/mqtt-client.ts",
+    "index.ts"
+  ],
+  "typedocOptions": {
+    "watch": true,
+    "entryPoints": [
+      "src"
+    ],
+    "entryPointStrategy": "expand",
+    "githubPages": false,
+    "out": "docs"
+  }
 }

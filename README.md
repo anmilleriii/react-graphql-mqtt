@@ -6,9 +6,25 @@ React Apollo GraphQL client with EMQX MQTT broker
 
 Proof of Concept (PoC) for MQTT to web application.
 
-## Plan
+## Develop
 
-asdf
+### Web app
+
+```sh
+# Run React application at http://localhost:3000
+yarn dev
+
+# Run GraphQL server at http://localhost:4000
+yarn server
+
+# Run mock device client (i.e., publisher)
+yarn device
+
+# Run 
+
+```
+
+
 
 ## Architecture
 

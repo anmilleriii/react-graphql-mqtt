@@ -10,7 +10,6 @@ import { NavigationBar } from "./components/Navigation/NavigationBar";
  * Apollo
  * @todo actual spot
  */
-
 import {
   ApolloProvider,
   ApolloClient,
@@ -20,11 +19,9 @@ import {
   gql,
 } from "@apollo/client";
 
-import * as Types from "../../server/types";
+// import * as Types from "../../server/types/generated";
 
 // import { createSubscription } from "./controllers/mqttClient";
-
-
 
 // const GET_POSTS = gql`
 // query Get {
@@ -36,6 +33,7 @@ import * as Types from "../../server/types";
 /**
  * GraphQL server endpoint
  */
+
 const httpLink = createHttpLink({
   uri: "http://localhost:4000",
 });
@@ -47,6 +45,20 @@ const client = new ApolloClient({
 
 // const posts = useQuery<>(GET_POSTS);
 
+/**
+ * Returns the average of two numbers.
+ *
+ * @remarks
+ * {@link https://github.com/microsoft/tsdoc}
+ * {@link Button}
+ * {@link Button | the Button class}
+ *
+ * @param x - The first input number
+ * @param y - The second input number
+ * @returns The arithmetic mean of `x` and `y`
+ *
+ * @beta
+ */
 export default () => {
   useEffect(() => {
     // createSubscription();

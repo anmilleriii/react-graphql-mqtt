@@ -4,7 +4,9 @@
         "packages/*"
     ],
     "scripts": {
+        "doc": "yarn --cwd packages/web doc",
         "dev": "yarn --cwd packages/web dev",
+        "storybook": "yarn --cwd packages/web storybook",
         "build": "yarn --cwd packages/web build",
         "preview": "yarn --cwd packages/web preview",
         "test": "yarn --cwd packages/web test",

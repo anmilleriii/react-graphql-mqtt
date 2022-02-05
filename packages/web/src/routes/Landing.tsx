@@ -10,8 +10,9 @@ import { useGetPostsQuery } from "../../../server/types/generated/client-types";
 interface LandingProps {}
 
 const Landing = ({}: LandingProps): JSX.Element => {
-  const posts = useGetPostsQuery();
-  console.log(posts);
+  const { data } = useGetPostsQuery();
+  // data?.posts
+  console.log(data);
 
   return (
     <div className="flex flex-column justify-between">
