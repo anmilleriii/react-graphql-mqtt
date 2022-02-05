@@ -24,14 +24,5 @@
     "./src",
     "../server/mqtt-client.ts",
     "index.ts"
-  ],
-  "typedocOptions": {
-    "watch": true,
-    "entryPoints": [
-      "src"
-    ],
-    "entryPointStrategy": "expand",
-    "githubPages": false,
-    "out": "docs"
-  }
+  ]
 }

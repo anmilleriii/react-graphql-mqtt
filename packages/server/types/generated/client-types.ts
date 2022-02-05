@@ -34,6 +34,14 @@ export type AuthorInput = {
   lastName: Scalars['String'];
 };
 
+export type Location = {
+  __typename?: 'Location';
+  altitude?: Maybe<Scalars['String']>;
+  id: Scalars['String'];
+  latitude?: Maybe<Scalars['String']>;
+  longitude?: Maybe<Scalars['String']>;
+};
+
 export type Mutation = {
   __typename?: 'Mutation';
   createPost?: Maybe<Post>;
@@ -58,17 +66,23 @@ export type PostInput = {
 
 export type Query = {
   __typename?: 'Query';
+  locations?: Maybe<Array<Maybe<Location>>>;
   posts?: Maybe<Array<Maybe<Post>>>;
 };
 
-export type Result = {
-  __typename?: 'Result';
-  id?: Maybe<Scalars['String']>;
+
+export type QueryLocationsArgs = {
+  droneId: Scalars['String'];
 };
 
 export type Subscription = {
   __typename?: 'Subscription';
-  somethingChanged?: Maybe<Result>;
+  locationChanged?: Maybe<Location>;
+};
+
+
+export type SubscriptionLocationChangedArgs = {
+  droneId: Scalars['String'];
 };
 
 export type GetPostsQueryVariables = Exact<{ [key: string]: never; }>;

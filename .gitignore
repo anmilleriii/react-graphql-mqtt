@@ -3,4 +3,5 @@ env/
 build/
 _local/
 _temp/
-scratch
+scratch*
+yarn-error.log

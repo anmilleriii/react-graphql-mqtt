@@ -4,6 +4,7 @@ export type InputMaybe<T> = Maybe<T>;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
 export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
 export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
+export type RequireFields<T, K extends keyof T> = Omit<T, K> & { [P in K]-?: NonNullable<T[P]> };
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
   ID: string;
@@ -32,6 +33,14 @@ export type AuthorInput = {
   lastName: Scalars['String'];
 };
 
+export type Location = {
+  __typename?: 'Location';
+  altitude?: Maybe<Scalars['String']>;
+  id: Scalars['String'];
+  latitude?: Maybe<Scalars['String']>;
+  longitude?: Maybe<Scalars['String']>;
+};
+
 export type Mutation = {
   __typename?: 'Mutation';
   createPost?: Maybe<Post>;
@@ -56,17 +65,23 @@ export type PostInput = {
 
 export type Query = {
   __typename?: 'Query';
+  locations?: Maybe<Array<Maybe<Location>>>;
   posts?: Maybe<Array<Maybe<Post>>>;
 };
 
-export type Result = {
-  __typename?: 'Result';
-  id?: Maybe<Scalars['String']>;
+
+export type QueryLocationsArgs = {
+  droneId: Scalars['String'];
 };
 
 export type Subscription = {
   __typename?: 'Subscription';
-  somethingChanged?: Maybe<Result>;
+  locationChanged?: Maybe<Location>;
+};
+
+
+export type SubscriptionLocationChangedArgs = {
+  droneId: Scalars['String'];
 };
 
 export type WithIndex<TObject> = TObject & Record<string, any>;
@@ -143,11 +158,11 @@ export type ResolversTypes = ResolversObject<{
   AuthorInput: AuthorInput;
   Boolean: ResolverTypeWrapper<Scalars['Boolean']>;
   Int: ResolverTypeWrapper<Scalars['Int']>;
+  Location: ResolverTypeWrapper<Location>;
   Mutation: ResolverTypeWrapper<{}>;
   Post: ResolverTypeWrapper<Post>;
   PostInput: PostInput;
   Query: ResolverTypeWrapper<{}>;
-  Result: ResolverTypeWrapper<Result>;
   String: ResolverTypeWrapper<Scalars['String']>;
   Subscription: ResolverTypeWrapper<{}>;
 }>;
@@ -158,11 +173,11 @@ export type ResolversParentTypes = ResolversObject<{
   AuthorInput: AuthorInput;
   Boolean: Scalars['Boolean'];
   Int: Scalars['Int'];
+  Location: Location;
   Mutation: {};
   Post: Post;
   PostInput: PostInput;
   Query: {};
-  Result: Result;
   String: Scalars['String'];
   Subscription: {};
 }>;
@@ -172,6 +187,14 @@ export type AuthorResolvers<ContextType = any, ParentType extends ResolversParen
   id?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   posts?: Resolver<Maybe<Array<Maybe<ResolversTypes['Post']>>>, ParentType, ContextType, Partial<AuthorPostsArgs>>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+}>;
+
+export type LocationResolvers<ContextType = any, ParentType extends ResolversParentTypes['Location'] = ResolversParentTypes['Location']> = ResolversObject<{
+  altitude?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  latitude?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  longitude?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 }>;
 
@@ -187,24 +210,20 @@ export type PostResolvers<ContextType = any, ParentType extends ResolversParentT
 }>;
 
 export type QueryResolvers<ContextType = any, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = ResolversObject<{
+  locations?: Resolver<Maybe<Array<Maybe<ResolversTypes['Location']>>>, ParentType, ContextType, RequireFields<QueryLocationsArgs, 'droneId'>>;
   posts?: Resolver<Maybe<Array<Maybe<ResolversTypes['Post']>>>, ParentType, ContextType>;
 }>;
 
-export type ResultResolvers<ContextType = any, ParentType extends ResolversParentTypes['Result'] = ResolversParentTypes['Result']> = ResolversObject<{
-  id?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
-}>;
-
 export type SubscriptionResolvers<ContextType = any, ParentType extends ResolversParentTypes['Subscription'] = ResolversParentTypes['Subscription']> = ResolversObject<{
-  somethingChanged?: SubscriptionResolver<Maybe<ResolversTypes['Result']>, "somethingChanged", ParentType, ContextType>;
+  locationChanged?: SubscriptionResolver<Maybe<ResolversTypes['Location']>, "locationChanged", ParentType, ContextType, RequireFields<SubscriptionLocationChangedArgs, 'droneId'>>;
 }>;
 
 export type Resolvers<ContextType = any> = ResolversObject<{
   Author?: AuthorResolvers<ContextType>;
+  Location?: LocationResolvers<ContextType>;
   Mutation?: MutationResolvers<ContextType>;
   Post?: PostResolvers<ContextType>;
   Query?: QueryResolvers<ContextType>;
-  Result?: ResultResolvers<ContextType>;
   Subscription?: SubscriptionResolvers<ContextType>;
 }>;
 

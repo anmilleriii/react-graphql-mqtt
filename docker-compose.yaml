@@ -1,8 +1,10 @@
 version: "3.9"
 services:
-  webapp:
-    build:
-      context: ./dir
-      dockerfile: Dockerfile-alternate
-      args:
-        buildno: 1
+  graphql-server:
+    # build:
+    container_name: graphql-server
+  react-web-application:
+    container_name: react-web-app
+  mock-mqtt-device:
+    container_name: mock-mqtt-device
+    # todo...

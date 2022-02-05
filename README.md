@@ -20,11 +20,9 @@ yarn server
 # Run mock device client (i.e., publisher)
 yarn device
 
-# Run 
+# Run
 
 ```
-
-
 
 ## Architecture
 
@@ -55,6 +53,7 @@ yarn link
 # questions
 
 where is qos defined sub or pub or broker?
+
 ## Acceptance Criteria
 
 asdf
