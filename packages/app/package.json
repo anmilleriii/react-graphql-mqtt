@@ -1,0 +1,10 @@
+{
+  "name": "@react-graphql-mqtt/app",
+  "version": "0.0.0",
+  "description": "React Native app for MQTT",
+  "main": "index.ts",
+  "repository": "https://github.com/anmilleriii/react-graphql-mqtt.git",
+  "author": "Al Miller <albert.miller@uconn.edu>",
+  "license": "MIT",
+  "private": true
+}
