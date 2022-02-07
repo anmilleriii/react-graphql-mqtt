@@ -16,9 +16,9 @@ const Landing = ({}: LandingProps): JSX.Element => {
 
   return (
     <div className="flex flex-column justify-between">
-      {/* <SectionContainer header="Connection Status">
+      <SectionContainer header="Connection Status">
         <StatusContainer />
-      </SectionContainer> */}
+      </SectionContainer>
       {/* <SectionContainer header="Message Log">
         <Grid
           data={[

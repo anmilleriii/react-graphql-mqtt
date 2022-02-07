@@ -1,60 +1,91 @@
-.circle {
-    height: 6vw;
-    width: 6vw;
-    border-radius: 50%;
+.positive {
     background-color: var(--positive);
-}
-
-.arrow {
-    position: relative;
-    width: 5vw;
-    margin: 2.1vw auto;
-    height: 0;
-    border-bottom: 0.4vw solid var(--positive);
-}
-
-.arrow::after {
-    content: "";
-    width: 0;
-    height: 0;
-    border-top: 0.8vw solid transparent;
-    border-bottom: 0.8vw solid transparent;
-    border-left: 1.3vw solid var(--positive);
-    position: absolute;
-    right: -0.4vw;
-    top: -0.6vw;
-}
-
-.reverse {
-    transform: rotate(180deg);
-}
-
-.sm {
-    height: 4vw;
-    width: 4vw;
-}
-
-.line {
-    margin: 0.2vw 0;
-    height: calc(0.2vw + 6px);
-    height: calc(0.2vw + 6px);
-    width: 6vw;
-    background: repeating-linear-gradient(to right, var(--negative) 0, var(--negative) 0.4vw, transparent 0.4vw, transparent 0.65vw);
-}
-
-.arrow {
-    width: 4vw;
-}
-
-.point {
-    width: 0;
-    height: 0;
-    border-top: 0.3vw solid transparent;
-    border-bottom: 0.3vw solid transparent;
-    border-left: 0.4vw solid blue;
-    float: right;
 }
 
 .negative {
     background-color: var(--negative);
+
+    // line
+    &.h1-ns {
+        background: repeating-linear-gradient(to right, var(--negative) 0, var(--negative) 0.4vw, transparent 0.4vw, transparent 0.65vw);
+    }
+
 }
+
+
+// .circle {
+//     // height: 6vw;
+//     // width: 6vw;
+//     // height: 6vw;
+//     // width: 25%;
+//     border-radius: 50%;
+//     background-color: var(--neutral);
+// }
+
+
+// .line {
+//     height: 2vh;
+//     width: 10vw;
+//     // width: 4vwvh;
+//     background-color: var(--positive);
+
+
+//     &--disconnected {
+
+//     }
+// }
+
+
+// // .arrow {
+// //     position: relative;
+// //     width: 5vw;
+// //     margin: 2.1vw auto;
+// //     height: 0;
+// //     border-bottom: 0.4vw solid var(--positive);
+// // }
+
+// // .arrow::after {
+// //     content: "";
+// //     width: 0;
+// //     height: 0;
+// //     border-top: 0.8vw solid transparent;
+// //     border-bottom: 0.8vw solid transparent;
+// //     border-left: 1.3vw solid var(--positive);
+// //     position: absolute;
+// //     right: -0.4vw;
+// //     top: -0.6vw;
+// // }
+
+// // .reverse {
+// //     transform: rotate(180deg);
+// // }
+
+// // .sm {
+// //     height: 4vw;
+// //     width: 4vw;
+// // }
+
+// // .line {
+// //     margin: 0.2vw 0;
+// //     height: calc(0.2vw + 6px);
+// //     height: calc(0.2vw + 6px);
+// //     width: 6vw;
+// //     background: repeating-linear-gradient(to right, var(--negative) 0, var(--negative) 0.4vw, transparent 0.4vw, transparent 0.65vw);
+// // }
+
+// // .arrow {
+// //     width: 4vw;
+// // }
+
+// // .point {
+// //     width: 0;
+// //     height: 0;
+// //     border-top: 0.3vw solid transparent;
+// //     border-bottom: 0.3vw solid transparent;
+// //     border-left: 0.4vw solid blue;
+// //     float: right;
+// // }
+
+// // .negative {
+// //     background-color: var(--negative);
+// // }
