@@ -66,7 +66,8 @@ export default () => {
 
   return (
     <ApolloProvider client={client}>
-      <div className="mv4 center w-third-l w-two-thirds-m w-two-thirds mid-gray vh-100 ">
+      {/* todo: w-100 */}
+      <div className="mv4 center w-third-l w-two-thirds-m w-two-thirds mid-gray vh-100  ">
         <BrowserRouter>
           <NavigationBar />
           <h2 className="mt4">MQTT Duplex Heartbeat over Broker PoC</h2>

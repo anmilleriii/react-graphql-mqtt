@@ -2,6 +2,10 @@
     background-color: var(--positive);
 }
 
+.neutral {
+    background-color: var(--neutral);
+}
+
 .negative {
     background-color: var(--negative);
 
@@ -9,7 +13,6 @@
     &.h1-ns {
         background: repeating-linear-gradient(to right, var(--negative) 0, var(--negative) 0.4vw, transparent 0.4vw, transparent 0.65vw);
     }
-
 }
 
 

@@ -60,7 +60,7 @@ const StatusContainer = (): JSX.Element => {
   const statusStyles = {
     HEALTHY: "positive",
     UNHEALTHY: "negative",
-    UNKNOWN: "",
+    UNKNOWN: "neutral",
   };
 
   // const connectionStyles = {
@@ -71,38 +71,42 @@ const StatusContainer = (): JSX.Element => {
 
   return (
     <>
-      <div className="flex-row-l flex-column-m flex-column flex items-center gray b mt4" >
-        <div className="flex-column flex items-center justify-center  ">
-          <div className="dt w4">
+      <div className="flex-row-l flex-column-m flex-column flex items-center gray b mt4">
+        <div className="flex-column flex">
+          <div className="flex flex-row  items-center justify-center">
+            <span className="absolute ttu white">{statuses.ui.status}</span>
             <div
               className={classNames(
-                "h4 br-100 bg-gray",
+                "h4 w4  br-100",
                 statusStyles[statuses.ui.status]
               )}
             ></div>
           </div>
           <span className="center mv2 f6">UI</span>
         </div>
+
         <div className="flex flex-column mh3">
           <div
             className={classNames(
               "h3 w1 h3-m w1-m h1-ns w3-ns mv2",
               statuses.ui.connected ? "positive" : "negative"
-              )}
+            )}
           ></div>
-              <div className="mv2"></div>
+          <div className="mv2"></div>
         </div>
-        <div className=" flex-column flex ">
-          <div className="dt w4">
+        <div className="flex-column flex">
+          <div className="flex flex-row  items-center justify-center">
+            <span className="absolute ttu white">{statuses.broker.status}</span>
             <div
               className={classNames(
-                "h4 br-100 bg-gray",
+                "h4 w4  br-100",
                 statusStyles[statuses.broker.status]
               )}
             ></div>
           </div>
           <span className="center mv2 f6">Broker</span>
         </div>
+
         <div className="flex flex-column mh3">
           <div
             className={classNames(
@@ -113,15 +117,16 @@ const StatusContainer = (): JSX.Element => {
           <div className="mv2"></div>
         </div>
         <div className="flex-column flex">
-          <div className="dt w4">
+          <div className="flex flex-row  items-center justify-center">
+            <span className="absolute ttu white">{statuses.device.status}</span>
             <div
               className={classNames(
-                "h4 br-100 bg-gray",
+                "h4 w4  br-100",
                 statusStyles[statuses.device.status]
               )}
             ></div>
           </div>
-          <span className="center mv2 f6 ">Device</span>
+          <span className="center mv2 f6">Device</span>
         </div>
       </div>
     </>
