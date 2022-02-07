@@ -1,8 +1,29 @@
-// /**
-//  * Server definition
-//  * 
-//  * @todo move resolvers to different file
-//  */
+/**
+ * Server definition
+ * 
+ * @todo move resolvers to different file
+ */
+
+import { WebSocketServer } from 'ws'; // yarn add ws
+import { useServer } from 'graphql-ws/lib/use/ws';
+// import { schema } from './schema';
+import { readFileSync } from 'fs'
+
+const server = new WebSocketServer({
+  port: 4000,
+  path: '/graphql',
+});
+
+
+const schema = readFileSync('./schema.graphql').toString('utf-8')
+
+useServer({ schema }, server);
+
+console.log('Listening to port 4000');
+
+
+
+
 
 // import { ApolloServer } from "apollo-server";
 // import { readFileSync } from 'fs'
@@ -67,35 +88,35 @@
 
 
 
-import { ApolloServer } from 'apollo-server-express';
-import { ApolloServerPluginDrainHttpServer } from 'apollo-server-core';
-import express from 'express';
-import http from 'http';
+// import { ApolloServer } from 'apollo-server-express';
+// import { ApolloServerPluginDrainHttpServer } from 'apollo-server-core';
+// import express from 'express';
+// import http from 'http';
 
-async function startApolloServer(typeDefs, resolvers) {
-  // Required logic for integrating with Express
-  const app = express();
-  const httpServer = http.createServer(app);
+// async function startApolloServer(typeDefs, resolvers) {
+//   // Required logic for integrating with Express
+//   const app = express();
+//   const httpServer = http.createServer(app);
 
-  // Same ApolloServer initialization as before, plus the drain plugin.
-  const server = new ApolloServer({
-    typeDefs,
-    resolvers,
-    plugins: [ApolloServerPluginDrainHttpServer({ httpServer })],
-  });
+//   // Same ApolloServer initialization as before, plus the drain plugin.
+//   const server = new ApolloServer({
+//     typeDefs,
+//     resolvers,
+//     plugins: [ApolloServerPluginDrainHttpServer({ httpServer })],
+//   });
 
-  // More required logic for integrating with Express
-  await server.start();
-  server.applyMiddleware({
-    app,
+//   // More required logic for integrating with Express
+//   await server.start();
+//   server.applyMiddleware({
+//     app,
 
-    // By default, apollo-server hosts its GraphQL endpoint at the
-    // server root. However, *other* Apollo Server packages host it at
-    // /graphql. Optionally provide this to match apollo-server.
-    path: '/'
-  });
+//     // By default, apollo-server hosts its GraphQL endpoint at the
+//     // server root. However, *other* Apollo Server packages host it at
+//     // /graphql. Optionally provide this to match apollo-server.
+//     path: '/'
+//   });
 
-  // Modified server startup
-  await new Promise<void>(resolve => httpServer.listen({ port: 4000 }, resolve));
-  console.log(`🚀 Server ready at http://localhost:4000${server.graphqlPath}`);
-}
+//   // Modified server startup
+//   await new Promise<void>(resolve => httpServer.listen({ port: 4000 }, resolve));
+//   console.log(`🚀 Server ready at http://localhost:4000${server.graphqlPath}`);
+// }

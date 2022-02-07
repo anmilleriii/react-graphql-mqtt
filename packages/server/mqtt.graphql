@@ -1,4 +1,7 @@
 # MQTT query
 
-
-
+query GetPosts {
+  posts {
+    title
+  }
+}

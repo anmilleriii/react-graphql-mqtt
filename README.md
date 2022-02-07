@@ -10,6 +10,10 @@ Proof of Concept (PoC) for MQTT to web application.
 
 ### Web app
 
+
+```
+docker-compose up`
+
 ```sh
 # Run React application at http://localhost:3000
 yarn dev

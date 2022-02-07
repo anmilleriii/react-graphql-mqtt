@@ -4,7 +4,7 @@ import { StatusContainer } from "../components/Status/StatusContainer";
 import { KeyContainer } from "../components/Key/KeyContainer";
 import { Grid } from "gridjs-react";
 
-import { useGetPostsQuery } from "../../../server/types/generated/client-types";
+import { useGetPostsQuery,  } from "../../../server/types/generated/client-types";
 
 interface LandingProps {}
 
@@ -64,13 +64,15 @@ const Landing = ({}: LandingProps): JSX.Element => {
       <SectionContainer header="Message Log">
         <table className="table w-100 tl">
           <thead>
-            {columns.map((column) => (
-              <th className="w-third-ns pb2 tc">{column}</th>
-            ))}
+            <tr>
+              {columns.map((column, index) => (
+                <th key={index} className="w-third-ns pb2 tc">{column}</th>
+              ))}
+            </tr>
           </thead>
           <tbody>
-            {messages.map(({ topic, data, timestamp }) => (
-              <tr className="gray striped--near-white">
+            {messages.map(({ topic, data, timestamp }, index) => (
+              <tr key={index} className="gray striped--near-white">
                 <td>{topic}</td>
                 <td>{data}</td>
                 <td>{timestamp}</td>
